@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/registerFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.akbarfikri.noteAppBattlepassRaionFirst.ui.auth.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_notesFragment"
+            app:destination="@id/notesFragment"
+            app:popUpTo="@id/registerFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.akbarfikri.noteAppBattlepassRaionFirst.ui.auth.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_notesFragment"
+            app:destination="@id/notesFragment"
+            app:popUpTo="@id/registerFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="com.akbarfikri.noteAppBattlepassRaionFirst.ui.notes.NotesFragment"
+        android:label="fragment_notes"
+        tools:layout="@layout/fragment_notes">
+        <action
+            android:id="@+id/action_notesFragment_to_noteEditorFragment"
+            app:destination="@id/noteEditorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteEditorFragment"
+        android:name="com.akbarfikri.noteAppBattlepassRaionFirst.ui.notes.editor.NoteEditorFragment"
+        android:label="fragment_note_editor"
+        tools:layout="@layout/fragment_note_editor">
+        <argument
+            android:name="note"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+</navigation>
